@@ -6,6 +6,7 @@ import Contato from "./Componentes/Contato"
 import Tarefas from "./Componentes/Tarefas"
 import Link from "next/link"
 import GitHub from "./github/page"
+import { Suspense } from "react"
 
 export default function Home () {
    return (
@@ -42,9 +43,11 @@ export default function Home () {
         <Tarefas/>
       </Secao>
 
-      <Secao titulo="GitHub">
-        <GitHub/>
-      </Secao>
+        <Secao titulo="GitHub">
+          <Suspense fallback={<p>Carregando repositórios...</p>}>
+            <GitHub/>
+          </Suspense>
+        </Secao>
     </main>
   );
 }
