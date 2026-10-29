@@ -3,6 +3,7 @@ export default async function GitHub() {
     const res = await fetch(
         "https://api.github.com/users/samvitordebf21-lang/repos"
    );
+   
   const repos = await res.json();
   return (
     <ul>

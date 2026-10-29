@@ -8,9 +8,27 @@
   --border: #e5e8f0;
   --accent: #6258d9;
   --accent-hover: #4e45bd;
+  --accent-foreground: #ffffff;
   --accent-soft: #efedff;
   --success: #278269;
   --shadow: 0 18px 50px rgb(34 39 75 / 7%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --background: #151724;
+    --surface: #202335;
+    --foreground: #f1f2fa;
+    --muted: #a7adc2;
+    --border: #34384e;
+    --accent: #a59cff;
+    --accent-hover: #b7b0ff;
+    --accent-foreground: #202335;
+    --accent-soft: #302d4d;
+    --success: #70d2b2;
+    --shadow: 0 18px 50px rgb(0 0 0 / 22%);
+  }
 }
 
 @theme inline {
@@ -35,10 +53,10 @@ body {
   flex-direction: column;
   margin: 0;
   background:
-    radial-gradient(ellipse at 12% 0%, rgb(98 88 217 / 9%), transparent 34rem),
+    radial-gradient(ellipse at 12% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 34rem),
     var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   line-height: 1.65;
 }
 
@@ -179,7 +197,7 @@ a {
 
 .cartao:hover {
   transform: translateY(-3px);
-  border-color: rgb(98 88 217 / 35%);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
   box-shadow: 0 12px 30px rgb(34 39 75 / 9%);
 }
 
@@ -210,7 +228,7 @@ button {
 button:hover {
   transform: translateY(-1px);
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-foreground);
 }
 
 button:focus-visible,
@@ -302,6 +320,121 @@ body > footer p {
   margin: 0;
 }
 
+main:not(.pagina-inicial) {
+  width: min(100% - 3rem, 70rem);
+  flex: 1;
+  margin-inline: auto;
+  padding-block: clamp(2rem, 6vw, 4rem);
+  animation: surgir 420ms ease-out both;
+}
+
+main:not(.pagina-inicial) > h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  letter-spacing: -0.055em;
+  line-height: 1.1;
+}
+
+main:not(.pagina-inicial) > p {
+  margin: 0.8rem 0 1.5rem;
+  color: var(--muted);
+}
+
+main:not(.pagina-inicial) > .cartao {
+  margin-top: 1rem;
+}
+
+main:not(.pagina-inicial) > a {
+  display: inline-flex;
+  min-height: 2.65rem;
+  align-items: center;
+  margin-top: 1.25rem;
+  border-radius: 0.7rem;
+  padding: 0.55rem 0.9rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+main:not(.pagina-inicial) > a:hover {
+  transform: translateY(-1px);
+  background: var(--accent);
+  color: var(--background);
+}
+
+main:not(.pagina-inicial) form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+main:not(.pagina-inicial) form > input:not([type="checkbox"]) {
+  width: min(100%, 25rem);
+  min-height: 2.8rem;
+  flex: 1 1 14rem;
+  border: 1px solid var(--border);
+  border-radius: 0.7rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+main:not(.pagina-inicial) form > input::placeholder,
+.secao form > input::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+main:not(.pagina-inicial) form + p {
+  min-height: 1.65rem;
+  margin: 0.6rem 0 0;
+  color: var(--success);
+  font-weight: 600;
+}
+
+.apresentacao,
+.secao {
+  animation: surgir 420ms ease-out both;
+}
+
+.secao:nth-of-type(2) {
+  animation-delay: 70ms;
+}
+
+.secao:nth-of-type(3) {
+  animation-delay: 120ms;
+}
+
+.secao:nth-of-type(4) {
+  animation-delay: 170ms;
+}
+
+.secao:nth-of-type(5) {
+  animation-delay: 220ms;
+}
+
+.secao:nth-of-type(6) {
+  animation-delay: 270ms;
+}
+
+.cartao {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 600px) {
   .pagina-inicial {
     width: min(100% - 1.5rem, 70rem);
@@ -329,6 +462,24 @@ body > footer p {
   .secao {
     border-radius: 1rem;
   }
+
+  main:not(.pagina-inicial) {
+    width: min(100% - 1.5rem, 70rem);
+    padding-block: 1.5rem 2rem;
+  }
+
+  main:not(.pagina-inicial) > .cartao {
+    padding: 1rem;
+  }
+
+  main:not(.pagina-inicial) form {
+    flex-direction: column;
+  }
+
+  main:not(.pagina-inicial) form > input:not([type="checkbox"]),
+  main:not(.pagina-inicial) form > button {
+    width: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -337,5 +488,8 @@ body > footer p {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0s !important;
   }
 }
