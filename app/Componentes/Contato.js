@@ -31,4 +31,18 @@ export default function Contato() {
       <p>{aviso}</p>
     </>
   );
+await fetch("/api/contato", {
+
+method: "POST",
+
+headers: {
+
+"Content-Type": "application/json"
+
+},
+
+body: JSON.stringify({ nome }),
+
+});
+  
 }

@@ -48,6 +48,9 @@ export default function Home () {
             <GitHub/>
           </Suspense>
         </Secao>
+        <Secao titulo="Busca CEP">
+          <Suspense fallback={<p>Carregando...</p>}/>
+        </Secao>
     </main>
   );
 }
