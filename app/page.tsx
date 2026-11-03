@@ -7,6 +7,7 @@ import Tarefas from "./Componentes/Tarefas"
 import Link from "next/link"
 import GitHub from "./github/page"
 import { Suspense } from "react"
+import BuscaCep from "./API/Buscacep"
 
 export default function Home () {
    return (
@@ -49,7 +50,9 @@ export default function Home () {
           </Suspense>
         </Secao>
         <Secao titulo="Busca CEP">
-          <Suspense fallback={<p>Carregando...</p>}/>
+          <main>
+            <BuscaCep/>
+          </main>
         </Secao>
     </main>
   );
