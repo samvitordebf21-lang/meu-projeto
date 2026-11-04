@@ -7,7 +7,7 @@ import Tarefas from "./Componentes/Tarefas"
 import Link from "next/link"
 import GitHub from "./github/page"
 import { Suspense } from "react"
-import BuscaCep from "./API/Buscacep"
+import BuscaCep from "./api/Buscacep"
 
 export default function Home () {
    return (
