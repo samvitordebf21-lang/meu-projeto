@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 
 export default function ListaTarefas() {
   const [tarefas, setTarefas] = useState([
@@ -17,10 +18,6 @@ export default function ListaTarefas() {
     if (!novaTarefa.trim()) return;
     setTarefas([...tarefas, { id: Date.now(), texto: novaTarefa.trim(), feita: false }]);
     setNovaTarefa("");
-  }
-
-  function alternar(id) {
-    setTarefas(tarefas.map((t) => (t.id === id ? { ...t, feita: !t.feita } : t)));
   }
 
   return (
