@@ -8,7 +8,7 @@ import Link from "next/link"
 import GitHub from "./github/page"
 import { Suspense } from "react"
 import BuscaCep from "./api/Buscacep"
-import criarTarefa from "./api/criarTarefa"
+
 
 export default function Home () {
    return (

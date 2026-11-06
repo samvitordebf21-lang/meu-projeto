@@ -266,6 +266,38 @@ input:focus-visible {
   font-weight: 600;
 }
 
+.tarefas {
+  display: grid;
+  gap: 1rem;
+}
+
+.tarefas .linha {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tarefas .linha input {
+  width: min(100%, 25rem);
+  min-height: 2.8rem;
+  flex: 1 1 14rem;
+  border: 1px solid var(--border);
+  border-radius: 0.7rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+.tarefas .primario {
+  min-width: 8.5rem;
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.tarefas .primario:hover {
+  background: var(--accent-hover);
+}
+
 .tarefas ul,
 .secao > ul {
   display: grid;
@@ -277,17 +309,35 @@ input:focus-visible {
 
 .tarefas li,
 .secao > ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   border: 1px solid var(--border);
   border-radius: 0.7rem;
   padding: 0.65rem 0.8rem;
   overflow-wrap: anywhere;
 }
 
-.tarefas label {
+.tarefas li label {
   display: flex;
+  flex: 1;
   align-items: center;
   gap: 0.65rem;
   cursor: pointer;
+}
+
+.tarefas li button {
+  flex-shrink: 0;
+  min-height: 2.2rem;
+  padding-inline: 0.75rem;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--accent);
+}
+
+.tarefas li button:hover {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent);
 }
 
 .tarefas input[type="checkbox"] {
@@ -297,7 +347,11 @@ input:focus-visible {
 }
 
 .tarefas .feita {
+  background: color-mix(in srgb, var(--background) 80%, transparent);
   color: var(--muted);
+}
+
+.tarefas .feita label {
   text-decoration: line-through;
 }
 
