@@ -5,7 +5,7 @@ import {
   alternarTarefa,
   removerTarefa,
   ouvirTarefas,
-} from "../../lib/Tarefas";
+} from "@/services/tarefas";
 
 export default function ListaTarefas() {
   const [tarefas, setTarefas] = useState([]);

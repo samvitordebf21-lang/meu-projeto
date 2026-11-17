@@ -12,7 +12,7 @@ export default function Contato() {
       setAviso("Digite seu nome completo.");
       return;
     }
-
+ 
     try {
       
       const res = await fetch("/API/contato", {

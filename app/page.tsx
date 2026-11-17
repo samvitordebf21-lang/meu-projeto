@@ -1,13 +1,13 @@
-import Cabecalho from "./Componentes/Cabecalho"
-import Cartao from "./Componentes/Cartao"
-import {projetos} from "./Componentes/Dados"
-import Secao from "./Componentes/Secao"
-import Contato from "./Componentes/Contato"
-import Tarefas from "./Componentes/Tarefas"
-import Link from "next/link"
-import GitHub from "./github/page"
-import { Suspense } from "react"
-import BuscaCep from "./api/Buscacep"
+import Cabecalho from "../Componentes/Cabecalho";
+import Cartao from "../Componentes/Cartao";
+import {projetos} from "../Componentes/Dados";
+import Secao from "../Componentes/Secao";
+import Contato from "../Componentes/Contato";
+import Tarefas from "../Componentes/ListaTarefas";
+import Link from "next/link";
+import GitHub from "../Componentes/Github";
+import { Suspense } from "react";
+import BuscaCep from "../Componentes/BuscarCep";
 
 
 export default function Home () {

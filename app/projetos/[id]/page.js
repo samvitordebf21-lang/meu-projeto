@@ -1,4 +1,4 @@
-import { projetos } from "../../Componentes/Dados";
+import { projetos } from "../../../Componentes/Dados";
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {

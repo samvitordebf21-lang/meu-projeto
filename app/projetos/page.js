@@ -1,5 +1,5 @@
-import Cartao from "../Componentes/Cartao"
-import {projetos} from "../Componentes/Dados"
+import Cartao from "../../Componentes/Cartao"
+import {projetos} from "../../Componentes/Dados"
 
 export default function Projetos() {
 return (
