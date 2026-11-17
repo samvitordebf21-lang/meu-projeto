@@ -36,7 +36,7 @@ export default function ListaTarefas() {
       await criarTarefa(novaTarefa.trim());
       setNovaTarefa("");
     } catch (err) {
-      console.error("Erro ao criar tarefa:", err);
+      console.error("Erro ao criar tarefa: ", err);
       setErro("Não foi possível adicionar a tarefa.");
     }
   }
@@ -46,7 +46,7 @@ export default function ListaTarefas() {
       setErro("");
       await alternarTarefa(t.id, t.feita);
     } catch (err) {
-      console.error("Erro ao atualizar tarefa:", err);
+      console.error("Erro ao atualizar tarefa: ", err);
       setErro("Não foi possível atualizar a tarefa.");
     }
   }
@@ -56,7 +56,7 @@ export default function ListaTarefas() {
       setErro("");
       await removerTarefa(id);
     } catch (err) {
-      console.error("Erro ao remover tarefa:", err);
+      console.error("Erro ao remover tarefa: ", err);
       setErro("Não foi possível remover a tarefa.");
     }
   }
